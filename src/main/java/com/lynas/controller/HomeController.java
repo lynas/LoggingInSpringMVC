@@ -1,10 +1,9 @@
 package com.lynas.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.logging.Logger;
 
 
 /**
@@ -14,11 +13,11 @@ import java.util.logging.Logger;
 public class HomeController {
 
     @Autowired
-    Logger logger;
-
+    private Logger logger;
     @RequestMapping("/")
     public String home(){
-        logger.warning("warning" );
+        logger.debug("debug message");
+        logger.info("info message changed");
         return "home";
     }
 }

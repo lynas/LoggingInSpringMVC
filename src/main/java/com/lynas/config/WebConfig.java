@@ -1,5 +1,6 @@
 package com.lynas.config;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InjectionPoint;
 import org.springframework.context.ApplicationContext;
@@ -15,8 +16,6 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
-
-import java.util.logging.Logger;
 
 /**
  * Created by lynas on 11/7/2016
@@ -103,7 +102,7 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     @Bean
     @Scope("prototype")
     public Logger logger(InjectionPoint injectionPoint) {
-        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass());
     }
 
 }
